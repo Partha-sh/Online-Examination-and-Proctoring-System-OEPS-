@@ -1,310 +1,316 @@
-# Online-Examination-and-Proctoring-System-OEPS-
+# Online Examination & Proctoring System (OEPS)
+
+<p align="center">
+  <strong>Agile Software Development | Case Study & Sprint Planning</strong>
+  <br />
+  MIT Art, Design and Technology University, Pune
+  
+</p>
 
-Agile Software Development | Case Study & Sprint Planning
+---
+
+## Table of Contents
 
-Academic Project — Second Jury Review (AY 2026–27)
+- [About the Project](#-about-the-project)
+- [Problem Statement](#-problem-statement)
+- [Project Objectives](#-project-objectives)
+- [Proposed Development Methodology](#-proposed-development-methodology)
+- [Case Study Analysis](#-case-study-analysis)
+- [OEPS Product Backlog](#-oeps-product-backlog)
+- [Agile Estimation and Sprint Planning](#-agile-estimation-and-sprint-planning)
+- [Sprint Execution Workflow](#-sprint-execution-workflow)
+- [Quality Assurance and Risk Management](#-quality-assurance-and-risk-management)
+- [Tools and CI/CD Workflow](#-tools-and-cicd-workflow)
+- [Repository Structure](#-repository-structure)
+- [Project Deliverables](#-project-deliverables)
+- [Team Members](#-team-members)
+- [Scope and Limitations](#-scope-and-limitations)
+- [References](#-references)
 
-This repository contains the case study and presentation for the Online Examination and Proctoring System (OEPS), an academic project focused on selecting and applying suitable software development practices to build a secure, reliable, and adaptable online examination platform.
+---
 
-The project examines real-world failures in examination software and applies concepts from Agile Software Development, Scrum, sprint planning, estimation, quality assurance, risk management, and CI/CD to propose a practical development strategy for OEPS.
+## About the Project
 
-Project Overview
+The **Online Examination and Proctoring System (OEPS)** is an academic case study developed as part of the Agile Software Development coursework. It explores how software engineering methodologies can be applied to create a secure, reliable, and adaptable online examination platform.
 
-Online examination systems must handle secure authentication, exam scheduling, question management, answer saving, automatic submission, result generation, and online proctoring.
+The study examines real-world failures in commercial examination software and uses their lessons to recommend an appropriate development methodology for OEPS.
 
-Failures in these systems can result in lost answers, disrupted examinations, incorrect proctoring flags, and unfair outcomes for students.
+The project also applies concepts from Agile estimation, product backlog management, sprint planning, sprint execution, quality assurance, risk management, and Continuous Integration and Continuous Delivery (CI/CD).
 
-This project investigates how software development methodology affects the reliability and adaptability of such systems and recommends a hybrid Agile and V-Model approach.
+> **Core recommendation:** Combine Agile/Scrum practices for evolving features with V-Model verification practices for security-critical and high-risk examination functions.
 
-Agile/Scrum is used for features that evolve through stakeholder feedback.
+## Problem Statement
 
-V-Model practices are applied to security-critical and high-risk modules that require rigorous verification and testing.
+Online examination platforms must support multiple critical functions while maintaining reliability during high-stakes examinations.
 
-The project also demonstrates how requirements can be converted into user stories, estimated using story points, organized into sprint backlogs, and delivered through iterative development and testing.
+| Challenge | Potential consequence |
+|---|---|
+| Authentication and access-control failures | Unauthorized access to examinations |
+| Answer-saving or submission failures | Loss of student responses |
+| Last-minute software updates | Examination disruption |
+| Unvalidated proctoring systems | Incorrect or unreliable flags |
+| Changing stakeholder requirements | Delays and inflexible functionality |
 
-Objectives
+**Research question:** Which development approach—Agile/Scrum, the V-Model, or a combination of both—is most suitable for building OEPS while balancing security, reliability, and changing stakeholder needs?
 
-Analyze real-world failures in commercial online examination software.
+## Project Objectives
 
-Compare Agile/Scrum and the V-Model for high-stakes examination systems.
+- Analyze documented failures in commercial examination software.
+- Compare Agile/Scrum and the V-Model for high-stakes software development.
+- Recommend a hybrid development methodology for OEPS.
+- Identify and prioritize product backlog items using user stories.
+- Apply INVEST principles to create small, testable requirements.
+- Estimate work using Planning Poker and story points.
+- Plan and execute sprints using an iterative workflow.
+- Define testing, risk mitigation, code review, and release practices.
+- Explain how version control and CI/CD can support reliable delivery.
 
-Recommend a suitable software development approach for OEPS.
+## Proposed Development Methodology
 
-Create and prioritize a product backlog using user stories.
+The project recommends a **hybrid Agile + V-Model approach** rather than relying entirely on either methodology.
 
-Apply the INVEST principles to improve story quality.
+| Development approach | Strength | Limitation in OEPS | Proposed use |
+|---|---|---|---|
+| Agile/Scrum | Iterative delivery and stakeholder feedback | Critical workflows still require rigorous verification | Features with evolving requirements |
+| V-Model | Structured verification and validation | Changes can be more difficult to accommodate | Security-critical and high-risk modules |
+| Hybrid approach | Balances adaptability and verification | Requires coordination between iterative work and formal testing | Overall OEPS development strategy |
 
-Understand Planning Poker, story points, and velocity.
+### Module-wise approach
 
-Demonstrate sprint planning, execution, review, and completion.
+| OEPS module | Recommended approach | Justification |
+|---|---|---|
+| Authentication and user management | V-Model practices | Security and access control |
+| Exam timer, auto-save and submission | V-Model practices | Preventing answer loss and submission failures |
+| AI/camera-based proctoring | Agile iterations with formal validation | Evolving functionality with high-stakes consequences |
+| Exam scheduling and question management | Agile/Scrum | Changing faculty requirements |
+| Dashboards, results and reports | Agile/Scrum | Iterative improvements based on feedback |
 
-Identify quality assurance practices and project risks.
+### Proposed development lifecycle
 
-Explain how GitHub and CI/CD support collaborative development and reliable releases.
+```mermaid
+flowchart LR
+    A[Requirements] --> B[Sprint Planning]
+    B --> C[Build]
+    C --> D[Test and Review]
+    D --> E[Feedback]
+    E --> B
+    D --> F[Verified Release]
+```
 
-Case Study: Real-World Software Failures
+*This diagram represents the proposed workflow, not an implemented or deployed application.*
 
-The case study examines three reported examination software incidents and academic research on hybrid development models.
+## Case Study Analysis
 
-Case
+The written case study analyzes three reported examination software incidents and academic research on hybrid development processes.
 
-Key issue
+| Case | Reported issue | Lesson for OEPS |
+|---|---|---|
+| ExamSoft — 2014 | Answer-upload failures following a bar examination | Perform load, stress and acceptance testing on submission workflows |
+| ExamSoft Examplify — 2018 | Examination disruptions associated with software updates shortly before the exam | Enforce release freezes and regression testing |
+| California Remote Bar Exam — 2020–2021 | Technical problems and large numbers of proctoring flags | Validate proctoring across devices and use human review |
+| Hybrid Agile/V-Model research | Research into combining iterative development with structured verification | Balance flexibility with systematic testing |
 
-Lesson for OEPS
+These cases are analyzed using secondary sources. The process-related causes and recommendations for OEPS represent the case study authors' analysis of the reported incidents.
 
-ExamSoft (2014)
+## OEPS Product Backlog
 
-Answer uploads failed during a high-stakes examination.
+The presentation defines example user stories prioritized according to their illustrative value and risk.
 
-Test submission, auto-save, server capacity, and recovery under load.
+| ID | User story | Purpose | Priority |
+|---|---|---|---|
+| US-01 | As a student, I want to log in securely. | Protect examination access | High |
+| US-02 | As a student, I want my answers to be auto-saved. | Prevent answer loss | High |
+| US-03 | As a student, I want a visible examination timer. | Track remaining time | High |
+| US-04 | As a proctor, I want to review flagged sessions. | Support fair examination review | Medium |
+| US-05 | As a student, I want to view my results. | Access released outcomes | Medium |
 
-ExamSoft Examplify (2018)
+*Priorities are illustrative and should be confirmed with the product owner.*
 
-Software updates shortly before examinations contributed to disruptions.
+### INVEST principles
 
-Enforce release freezes and regression testing before exam days.
+User stories are evaluated using the INVEST framework before estimation.
 
-California Remote Bar Exam (2020–2021)
+| Principle | Meaning |
+|---|---|
+| **I — Independent** | Minimize dependencies on other stories |
+| **N — Negotiable** | Allow implementation details to be discussed |
+| **V — Valuable** | Deliver meaningful user or business value |
+| **E — Estimable** | Make effort reasonably assessable |
+| **S — Small** | Keep work manageable within a sprint |
+| **T — Testable** | Define verifiable acceptance criteria |
 
-Technical problems and large numbers of proctoring flags raised concerns about reliability and validation.
+For example, the broad requirement *"Build the full online exam system"* can be divided into smaller stories such as secure login, auto-save answers, and the examination timer.
 
-Validate proctoring systems across devices and require human review of flagged sessions.
+## Agile Estimation and Sprint Planning
 
-Hybrid Agile and V-Model research
+### Estimation techniques
 
-Research explores combining iterative development with structured verification.
+| Technique | Purpose |
+|---|---|
+| Planning Poker | Allows team members to estimate independently and discuss differences |
+| Story points | Represent relative effort, complexity and uncertainty |
+| Velocity | Uses completed work from previous sprints to guide future capacity planning |
 
-Balance adaptability with rigorous testing for critical modules.
+### Illustrative sprint backlog
 
-The case study uses secondary sources and published research. These incidents are analyzed to derive lessons for the proposed OEPS development process.
+| Backlog item | Story points |
+|---|---:|
+| Secure login | 3 |
+| Auto-save answers | 5 |
+| Examination timer | 3 |
+| **Total planned effort** | **11 points** |
 
-Proposed Development Approach
+The 11-point total is an example from the presentation. It is not a measured team velocity or a record of completed development work.
 
-The project recommends a hybrid development model.
+## Sprint Execution Workflow
 
-OEPS module
+The project follows a four-stage conceptual workflow for sprint execution.
 
-Recommended approach
+```mermaid
+flowchart TD
+    A["1. PLAN<br/>Sprint goal and selected stories"]
+    B["2. BUILD<br/>Design, implementation and collaboration"]
+    C["3. CHECK<br/>Testing, review and risk tracking"]
+    D["4. REVIEW<br/>Demonstrate increment and collect feedback"]
 
-Reason
+    A --> B --> C --> D
+    D -. Feedback .-> A
+```
 
-Authentication and user management
+### Example: Auto-save feature
 
-V-Model practices
+| Stage | Activity |
+|---|---|
+| Sprint goal | Save examination answers reliably |
+| Acceptance criteria | Save after answer changes, show save status and recover answers after refresh |
+| Implementation | Develop the save API and review the code |
+| Verification | Test saving, refresh recovery, connection loss and authorization |
+| Definition of Done | All required checks pass, code is merged and the increment is demonstrated |
 
-Security and verification requirements
+The implementation details and workflow are illustrative and would need to be confirmed by an actual development team.
 
-Timer, auto-save, and submission
+## Quality Assurance and Risk Management
 
-V-Model practices
+Quality assurance should be part of every sprint rather than postponed until the end.
 
-Prevent answer loss and submission failures
+### Testing strategy
 
-AI and camera-based proctoring
+| Test level | Purpose |
+|---|---|
+| Unit testing | Verify individual functions |
+| Integration testing | Verify interactions between connected modules |
+| System testing | Check the end-to-end examination workflow |
+| Acceptance testing | Confirm that requirements and acceptance criteria are satisfied |
+| Load and stress testing | Assess system behavior under examination traffic |
 
-Agile iterations with formal validation
+### Risk register
 
-Evolving requirements and high-stakes decisions
+| Risk | Impact | Proposed mitigation |
+|---|---|---|
+| Auto-save failure | Student answers may be lost | Test recovery and saving under failure conditions |
+| Unauthorized login or access | Compromised examination integrity | Validate authentication and access controls |
+| Last-minute release defects | Examination disruption | Freeze releases and run regression tests |
+| Incorrect proctoring flags | Unfair treatment of students | Validate detection and require human review |
+| High simultaneous traffic | Slow responses or failed submissions | Run realistic load and stress tests |
 
-Exam scheduling and question management
+Each risk should be tracked with an owner, likelihood, impact, and mitigation action.
 
-Agile/Scrum
+## Tools and CI/CD Workflow
 
-Adaptation to faculty and stakeholder feedback
+The presentation identifies tools and practices that can support collaborative development and repeatable delivery.
 
-Dashboards, results, and reports
+| Tool or practice | Intended purpose |
+|---|---|
+| GitHub | Version control, pull requests and code review |
+| Jira / Trello | Product backlog, sprint board and task tracking |
+| Automated testing | Detect defects during development |
+| CI/CD | Automate repeatable build, test and release steps |
+| Daily Scrum | Communicate progress and identify blockers |
+| Sprint review | Demonstrate work and gather stakeholder feedback |
 
-Agile/Scrum
+### Proposed CI/CD pipeline
 
-Iterative improvements based on user feedback
+```mermaid
+flowchart LR
+    A[Commit] --> B[Build]
+    B --> C[Automated Tests]
+    C --> D[Code Review]
+    D --> E[Deploy]
+```
 
-Key recommendations
+The pipeline illustrates a proposed workflow. A working pipeline is not included in the current project deliverables.
 
-Perform load and stress testing before scheduled examinations.
+## Repository Structure
 
-Freeze releases before exam days and complete regression testing.
+```text
+OEPS/
+├── README.md
+├── OEPS_Case_Study.docx
+└── OEPS_Review_2_Professional_Short.pptx
+```
 
-Maintain requirement-to-test traceability for critical modules.
+| File | Description |
+|---|---|
+| `README.md` | Project overview, methodology, findings and Agile workflow |
+| `OEPS_Case_Study.docx` | Written report covering the problem statement, methodology, case analysis, comparative findings and recommendations |
+| `OEPS_Review_2_Professional_Short.pptx` | Second jury review presentation covering Agile estimation, sprint planning, execution, quality assurance, risks and CI/CD |
 
-Validate AI proctoring results and treat flags as alerts for human review rather than automatic proof of misconduct.
+## Project Deliverables
 
-Deliver evolving features in small, testable increments.
+| Deliverable | Format | Coverage |
+|---|---|---|
+| OEPS case study | DOCX | Real-world failures and development methodology selection |
+| Second jury review | PPTX | Agile planning, estimation and sprint execution |
+| Project documentation | Markdown | Repository documentation and navigation |
 
-Agile Concepts Applied
+## Team Members
 
-1. Product Backlog and User Stories
+**Group G4 — TY-AIA-2 / TY-AIA-4**
 
-The presentation includes example user stories for:
+| No. | Name |
+|---:|---|
+| 1 | Akhil Patel |
+| 2 | Aashu Aman |
+| 3 | Parth Sharma |
+| 4 | Atharva Kumar |
+| 5 | Pawan Angad Jadhav |
 
-Secure student login.
+**Institution:** MIT School of Computing, MIT Art, Design and Technology University, Pune  
+**Course:** Agile Software Development  
+**Academic year:** 2026–27
 
-Automatic saving of examination answers.
+## Scope and Limitations
 
-A visible examination timer.
+This repository documents an academic case study and development-planning exercise. The included deliverables are a written report and a presentation.
 
-Proctor review of flagged sessions.
+**The current deliverables do not include:**
 
-Student access to released results.
+- A functioning online examination application.
+- An implemented authentication or database system.
+- A working auto-save or examination submission service.
+- An implemented AI-based proctoring system.
+- Automated test suites or a configured CI/CD pipeline.
 
-These stories are prioritized according to their illustrative value and risk.
+The user stories, sprint estimates, risks and workflows describe the proposed development process. They should not be interpreted as proof that these application features have been implemented or deployed.
 
-2. INVEST Principles
+## References
 
-The INVEST framework is used to evaluate user stories before estimation.
+The case study uses publicly reported examination software incidents and research on hybrid Agile and V-Model processes.
 
-I — Independent
+For the complete bibliographic details and source URLs, consult the **References** section of [`OEPS_Case_Study.docx`](./OEPS_Case_Study.docx).
 
-N — Negotiable
+## Conclusion
 
-V — Valuable
+The OEPS case study highlights the importance of selecting a development methodology that addresses both changing requirements and the consequences of software failure.
 
-E — Estimable
+The recommended hybrid approach uses Agile/Scrum to deliver evolving functionality incrementally and V-Model practices to strengthen verification of critical workflows such as authentication, answer saving, submission and proctoring.
 
-S — Small
+The accompanying presentation applies Agile concepts to product backlog management, estimation, sprint execution, quality assurance, risk management and CI/CD planning.
 
-T — Testable
+---
 
-A large requirement such as building an entire online examination system can be split into smaller deliverables, including secure login, auto-save, and the exam timer.
-
-3. Estimation and Sprint Planning
-
-The project introduces three important estimation concepts:
-
-Planning Poker: Team members estimate independently, reveal their estimates, and discuss differences.
-
-Story Points: Represent relative effort, complexity, and uncertainty.
-
-Velocity: Uses completed work from previous sprints to guide future planning.
-
-An illustrative sprint backlog contains:
-
-User story
-
-Story points
-
-Secure login
-
-3
-
-Auto-save answers
-
-5
-
-Exam timer
-
-3
-
-Total
-
-11
-
-These estimates are illustrative rather than measured results from completed development sprints.
-
-4. Sprint Execution
-
-The presentation follows a four-stage sprint workflow:
-
-Plan: Define the sprint goal and select stories.
-
-Build: Design, implement, and collaborate.
-
-Check: Run tests, conduct reviews, and track progress.
-
-Review: Demonstrate the increment and collect feedback.
-
-The Definition of Done requires code review, passing tests, satisfied acceptance criteria, and updated documentation.
-
-5. Quality Assurance and Risk Management
-
-The proposed quality practices include:
-
-Unit testing for individual functions.
-
-Integration testing for connected modules.
-
-System and acceptance testing for the examination workflow.
-
-Peer code reviews and pair programming.
-
-Risk tracking with an owner, likelihood, impact, and mitigation action.
-
-Priority risks include auto-save failure, unauthorized access, data protection issues, and unreliable proctoring decisions.
-
-6. Version Control and CI/CD
-
-The presentation describes the role of development tools in making work visible, reviewed, and repeatable.
-
-Illustrative CI/CD workflow:
-
-Commit → Build → Test → Review → Deploy
-
-GitHub: Version control, pull requests, and code review.
-
-Jira/Trello: Backlog management, sprint boards, and task tracking.
-
-CI/CD: Automates repeatable checks and helps detect defects early.
-
-The workflow is proposed as part of the development process; this repository does not claim to contain a configured or running CI/CD pipeline.
-
-Repository Contents
-
-The repository contains the following academic deliverables:
-
-File
-
-Description
-
-OEPS_Case_Study.docx
-
-Written case study covering methodology selection, real-world incidents, comparative findings, and recommendations.
-
-OEPS_Review_2_Professional_Short.pptx
-
-Presentation covering Agile estimation, sprint planning, sprint execution, quality assurance, risk management, and CI/CD.
-
-README.md
-
-Project overview, objectives, key findings, and documentation guide.
-
-Project Team
-
-Group G4 — TY-AIA-2 / TY-AIA-4
-
-MIT School of Computing
-MIT Art, Design and Technology University, Pune
-
-Akhil Patel
-
-Aashu Aman
-
-Partha Sharma
-
-Atharva Kumar
-
-Pawan Angad Jadhav
-
-Academic Year: 2026–27
-
-Scope and Limitations
-
-This repository documents an academic case study and software development planning exercise. It contains the written report and presentation described above.
-
-It does not represent a completed or deployed OEPS application. Application source code, a production database, a working authentication system, an implemented AI proctoring module, automated tests, and an operational CI/CD pipeline are not included in these deliverables.
-
-The sprint backlog and story-point estimates are illustrative examples intended to explain Agile planning concepts.
-
-References
-
-The written case study includes references to publicly reported examination software incidents and research on hybrid Agile and V-Model development processes.
-
-Consult the reference section of OEPS_Case_Study.docx for the source articles and academic publications used in the analysis.
-
-Conclusion
-
-The OEPS project demonstrates why development methodology matters in high-stakes software systems. Purely iterative development can leave critical workflows insufficiently verified, while a purely sequential approach can make changing requirements difficult to accommodate.
-
-A hybrid Agile and V-Model approach provides a practical balance: iterative delivery for evolving features and structured verification for security, answer submission, and proctoring.
-
-The project applies Agile planning and execution concepts to show how a team can organize work, estimate effort, manage risks, test continuously, and plan safer releases.
-
-Developed as part of the Agile Software Development coursework and jury review at MIT Art, Design and Technology University, Pune.
+<p align="center">
+  <strong>Agile Software Development | OEPS | Group G4</strong>
+  <br />
+  MIT Art, Design and Technology University, Pune
+</p>
